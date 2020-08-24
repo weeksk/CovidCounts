@@ -1,4 +1,6 @@
 import scrapy
+from lxml.builder import unicode
+
 from ..items import CoviddataItem
 
 
@@ -17,11 +19,15 @@ class WikipediaSpiderSpider(scrapy.Spider):
         covid_recoveries = response.css('#thetable td:nth-child(5)').css('::text').extract()
         covid_reference_links = response.css('#thetable td:nth-child(6) , #cite_ref-24 a , #cite_ref-\:1p3a_19-0 a').css('::attr(href)').extract()
 
+        for i in range(len(covid_cases)):
+            covid_cases[i] = covid_cases[i].split("\n")
+
         items['covid_locations'] = covid_locations
         items['covid_cases'] = covid_cases
         items['covid_deaths'] = covid_deaths
         items['covid_recoveries'] = covid_recoveries
         items['covid_reference_links'] = covid_reference_links
+
 
         yield items
 

@@ -4,6 +4,9 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+from itemloaders import ItemLoader
+from itemloaders.processors import MapCompose, TakeFirst
+from lxml.builder import unicode
 
 
 class CoviddataItem(scrapy.Item):
@@ -15,3 +18,6 @@ class CoviddataItem(scrapy.Item):
     covid_recoveries = scrapy.Field()
     covid_reference_links = scrapy.Field()
 
+# class ScrapingTestingLoader(ItemLoader):
+#     default_input_processor = MapCompose(unicode.strip)
+#     default_output_processor = TakeFirst()
