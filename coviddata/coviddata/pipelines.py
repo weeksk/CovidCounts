@@ -12,7 +12,7 @@ import pymongo
 class CoviddataPipeline:
 
     def __init__(self):
-        self.conn = pymongo.MongoClient('mongodb+srv://kcweeks92:thisisatest@cluster0.lltxb.mongodb.net/covid?retryWrites=true&w=majority/ssl=True'
+        self.conn = pymongo.MongoClient('mongodb+srv://@cluster0.lltxb.mongodb.net/covid?retryWrites=true&w=majority/ssl=True'
                                         , ssl=True)
         db = self.conn['covid']
         self.collection = db['coviddata_tb']
