@@ -17,10 +17,8 @@ class WikipediaSpiderSpider(scrapy.Spider):
         covid_cases = response.css('#thetable th+ td').css('::text').extract()
         covid_deaths = response.css('#thetable td:nth-child(4)').css('::text').extract()
         covid_recoveries = response.css('#thetable td:nth-child(5)').css('::text').extract()
-        covid_reference_links = response.css('#thetable td:nth-child(6) , #cite_ref-24 a , #cite_ref-\:1p3a_19-0 a').css('::attr(href)').extract()
-
-        for i in range(len(covid_cases)):
-            covid_cases[i] = covid_cases[i].split("\n")
+        covid_reference_links = response.css(
+            '#thetable td:nth-child(6) , #cite_ref-24 a , #cite_ref-\:1p3a_19-0 a').css('::attr(href)').extract()
 
         items['covid_locations'] = covid_locations
         items['covid_cases'] = covid_cases
@@ -28,7 +26,7 @@ class WikipediaSpiderSpider(scrapy.Spider):
         items['covid_recoveries'] = covid_recoveries
         items['covid_reference_links'] = covid_reference_links
 
-
         yield items
+
 
 
