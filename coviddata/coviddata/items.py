@@ -18,9 +18,6 @@ class CoviddataItem(scrapy.Item):
     covid_recoveries_test = scrapy.Field()
   #  covid_reference_links = scrapy.Field()
 
-# class ScrapingTestingLoader(ItemLoader):
-#     default_input_processor = MapCompose(unicode.strip)
-#     default_output_processor = TakeFirst()
 
 
 
