@@ -13,9 +13,9 @@ class CoviddataItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     covid_locations = scrapy.Field()
-    covid_cases_test = scrapy.Field()
-    covid_deaths_test = scrapy.Field()
-    covid_recoveries_test = scrapy.Field()
+    covid_cases = scrapy.Field()
+    covid_deaths = scrapy.Field()
+    covid_recoveries = scrapy.Field()
   #  covid_reference_links = scrapy.Field()
 
 

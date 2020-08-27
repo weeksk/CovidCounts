@@ -62,9 +62,12 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
 ITEM_PIPELINES = {
    'coviddata.pipelines.CoviddataPipeline': 300,
 }
+MONGO_URI = 'mongodb://kcweeks92:thisisatest@cluster0-shard-00-00.lltxb.mongodb.net:27017,cluster0-shard-00-01.lltxb.mongodb.net:27017,cluster0-shard-00-02.lltxb.mongodb.net:27017/covid?ssl=true&replicaSet=atlas-t81s2p-shard-0&authSource=admin&retryWrites=true&w=majority'
+MONGO_DATABASE = 'covid'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
